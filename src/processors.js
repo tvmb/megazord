@@ -89,7 +89,7 @@ function processVarTags(content, paramString) {
  * 
  * @returns string
  */
-function processIncludeTags(currentDirectory, content) {
+function processIncludeTags(currentDirectory, content, count = 0) {
     // search for all <mz-block> tags
     const includeRegex = /<mz-block(.*?)src=["'](.+?)["'](.*?)\/*>/g;
     const includeMatches = [...content.matchAll(includeRegex)];
@@ -108,6 +108,11 @@ function processIncludeTags(currentDirectory, content) {
         let includeContent = fs.readFileSync(path.resolve(currentDirectory, includeFile), "utf8");
         content = content.replace(match[0], processVarTags(includeContent, match[0] + " " + match[2]));
     });
+
+    const newIncludeMatches = [...content.matchAll(includeRegex)];
+    if ( newIncludeMatches.length > 0 && count < 10 ) {
+        return processIncludeTags(currentDirectory, content, count + 1);
+    }
 
     return content;
 }
