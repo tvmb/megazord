@@ -11,7 +11,7 @@ To use, download the latest release from this repo. From the command line, call 
  -d, --dir <dir>: Directory to be processed (should be structured as created by `init` command)
  -o, --out <out>: Output directory
  -v, --version: Output the version number
- -l, --lang <lang>: Language file to be processed
+ -l, --lang <lang>: Language file to be processed, eg. "en" or "es"
  -w, --watch: Watch for changes
 ```
 
@@ -39,4 +39,4 @@ The block tag will copy the file specificed by the `src` parameter and place its
 The var tag is used to display values passed into a block.
 
 ## `<mz-translate key="...">`
-The tranlsate tag is used (when --lang is specified and a tranlsation file is provided) to switch between values stored in the lang files
+The tranlsate tag is used (when --lang is specified and a tranlsation file is provided) to switch between values stored in the lang files.
