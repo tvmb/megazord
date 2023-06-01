@@ -29,7 +29,7 @@ To use, download the latest release from this repo. From the command line, call 
 
 There are only 4 speciality MEGAZORD tags, explained below. `<mz-*>` tags can be either self closed (ie, with />), or just used as an opening tag (eg, `<mz-layout src="...">`)
 
-## `<mz-layout>` 
+## `<mz-layout src="...">` 
 Only 1 of these tags may be included in a page, and are used to specify a parent template, comparable to the old ASP/.NET Master Pages
 
 ## `<mz-block src="./other-block.html" customName="customValue">`
