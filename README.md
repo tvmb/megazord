@@ -31,7 +31,7 @@ There are 5 speciality MEGAZORD tags, explained below. All `<mz-*>` tags can be 
 ## `<mz-layout src="...">` 
 Only 1 of these tags may be included in a page, and are used to specify a parent template, comparable to the old ASP/.NET Master Pages
 
-## `<mz-content/>`
+## `<mz-content>`
 This tag is only to be used in layouts, and specifies where in the layout the page content should go.
 
 ## `<mz-block src="./other-block.html" customName="customValue">`
