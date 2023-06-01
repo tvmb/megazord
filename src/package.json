@@ -1,6 +1,6 @@
 {
   "name": "mzord",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple component-based HTML build tool",
   "main": "index.js",
   "bin": {

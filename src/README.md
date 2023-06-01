@@ -22,7 +22,7 @@ From the command line, you can call the executable with the following options.
 
 # Quick Start
 
-1. Download the correct executable
+1. Install using `npm` as show above
 2. From the command line type `mzord --init ./new-project`
 3. Take a look at everything under the `/pages`, `/layouts`, `/blocks`, and `/lang` folders inside `./new-project`. 
 
