@@ -27,10 +27,13 @@ To use, download the latest release from [here](https://github.com/tvmb/megazord
 
 ## MEGAZORD tags
 
-There are 4 speciality MEGAZORD tags, explained below. All `<mz-*>` tags can be either self closed (ie, with />), or just used as an opening tag (eg, `<mz-layout src="...">`)
+There are 5 speciality MEGAZORD tags, explained below. All `<mz-*>` tags can be either self closed (ie, with />), or just used as an opening tag (eg, `<mz-layout src="...">`)
 
 ## `<mz-layout src="...">` 
 Only 1 of these tags may be included in a page, and are used to specify a parent template, comparable to the old ASP/.NET Master Pages
+
+## `<mz-content/>`
+This tag is only to be used in layouts, and specifies where in the layout the page content should go.
 
 ## `<mz-block src="./other-block.html" customName="customValue">`
 The block tag will copy the file specificed by the `src` parameter and place its content into the file. Any other parameters will be passed into the included block and can be accessed using an `<mz-var>` tag.
