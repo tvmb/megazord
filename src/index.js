@@ -52,6 +52,12 @@ if ( !options.out ) {
     return process.exit( 1 );
 }
 
+if ( !options.lang ) {
+    console.log(chalk.yellow.bold( " -- Warning: A language file was not specified, assuming \"en\".\n" ) );
+    options.lang = "en";
+    options.langAdded = true;
+}
+
 if ( options.watch ) {
     console.log( chalk.blue.bold( " -- Watching for changes...\n" ) );
 

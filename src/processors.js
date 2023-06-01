@@ -126,11 +126,11 @@ function processTranslateTags(options, currentDirectory, content) {
     const langFileName = options.lang + ".lang.json";
     const langFile = path.resolve(currentDirectory, path.join( "../lang", langFileName ) );
 
-    console.log({langFile});
-
     if (!fs.existsSync(langFile)) {
-        content = content.replace(/<mz-translate.*?>/g, "");
-        console.log(chalk.red(`-- Error: language file ${options.lang} not found.`));
+        if ( !options.langAdded ) {
+            content = content.replace(/<mz-translate.*?>/g, "");
+            console.log(chalk.red(`-- Error: language file ${options.lang} not found.`));
+        }
         return content;
     }
 
@@ -202,12 +202,14 @@ function processFile(file, options, outputDirectory) {
         fs.mkdirSync(outputDirectory);
     }
 
+    const separator = process.platform === "win32" ? "\\" : "/";
+
     // get the page name and remove the extensions
-    let newFileName = file.split('/').reverse()[0].replace(".html", "");
+    let newFileName = file.split(separator).reverse()[0].replace(".html", "");
 
     // if language file is specified, add the language to the file name
     if (options.lang) {
-        newFileName += `.${options.lang.split('/').reverse()[0].split('.')[0]}`;
+        newFileName += `.${options.lang.split(separator).reverse()[0].split('.')[0]}`;
     }
 
     // add the html extension
@@ -216,7 +218,7 @@ function processFile(file, options, outputDirectory) {
     console.log(chalk.bgGreen(" ** Processing " + file + " complete, saving file as " + newFileName + "\n\n"));
 
     // write the output file
-    fs.writeFileSync(path.resolve(`${outputDirectory}/${newFileName}`), content);
+    fs.writeFileSync(path.resolve(`${outputDirectory}${separator}${newFileName}`), content);
 }
 
 /**

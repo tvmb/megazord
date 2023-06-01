@@ -8,10 +8,10 @@ To use, download the latest release from this repo. From the command line, call 
  -v, --version: Output the current MEGAZORD version
  -i, --init <init>: Generate stub files to location
  -f, --file <file>: File to be processed
- -d, --dir <dir>: Directory to be processed (should be structured as created by `init` command)
+ -d, --dir <dir>: Directory to be processed (should be structured as created by `init` command, with a /pages folder)
  -o, --out <out>: Output directory
  -v, --version: Output the version number
- -l, --lang <lang>: Language file to be processed, eg. "en" or "es"
+ -l, --lang <lang>: Language file to be processed, eg. "en" or "es". If no lang is specified, "en" is assumed
  -w, --watch: Watch for changes
 ```
 
@@ -21,13 +21,13 @@ To use, download the latest release from this repo. From the command line, call 
 2. From the command line type `./{EXECUTABLE_FILE_NAME} --init ./new-project`
 3. Take a look at everything under the `/pages`, `/layouts`, `/blocks`, and `/lang` folders inside `./new-project`. 
 
-- NOTE: THE HTML FILES IN /PAGES ARE THE ONLY ONES THAT WILL BE BUILT. All of the other folders contain files that will be pulled in by each of the HTML files in `/pages`
+- **NOTE: THE HTML FILES IN `/pages` ARE THE ONLY ONES THAT WILL BE PROCESSED. All of the other folders contain files that will be pulled in by each of the HTML files in `/pages`**
 
-4. To build and process the pages, run `./{EXECUTABLE_FILE_NAME} --watch --dir ./new-project --out ./dist --lang en`. This command will listen for any changes to the source files, and then rebuild the output in the `./dist` folder when they are detected.
+4. To build and process the pages, run `./{EXECUTABLE_FILE_NAME} --watch --dir ./new-project --out ./dist`. This command will listen for any changes to the source files, and then rebuild the output in the `./dist` folder when they are detected.
 
 ## MEGAZORD tags
 
-There are only 4 speciality MEGAZORD tags, explained below. `<mz-*>` tags can be either self closed (ie, with />), or just used as an opening tag (eg, `<mz-layout src="...">`)
+There are only 4 speciality MEGAZORD tags, explained below. All `<mz-*>` tags can be either self closed (ie, with />), or just used as an opening tag (eg, `<mz-layout src="...">`)
 
 ## `<mz-layout src="...">` 
 Only 1 of these tags may be included in a page, and are used to specify a parent template, comparable to the old ASP/.NET Master Pages
